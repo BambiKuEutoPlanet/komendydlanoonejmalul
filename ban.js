@@ -26,11 +26,11 @@ module.exports = {
     const userToBan = mentions.users.first()
 
     if (!userToBan) {
-      return msg.reply("you must provide a valid user to ban.")
+      return msg.reply("Podaj osobę!.")
     }
 
     if (userToBan.id === author.id) {
-      return msg.reply("you can't ban yourself!")
+      return msg.reply("Siebie?!")
     }
 
     const memberToBan = guild.members.cache.get(userToBan.id)
@@ -50,8 +50,8 @@ module.exports = {
     // Ban user
     memberToBan.ban(banOptions).then((bannedUser) => {
       channel.send(
-        `User ${bannedUser.displayName} has been banned.\n${
-          reasonArg ? `Reason: \`${reasonArg}\`` : ""
+        `User ${bannedUser.displayName} reason.\n${
+          reasonArg ? reason: \`${reasonArg}\`` : ""
         }`,
       )
     })
